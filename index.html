@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>gf9k</title>
+<link rel="icon" href="images/favicon.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    color: white;
+}
+
+#video-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.preload-screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    z-index: 100;
+}
+
+.preload-text {
+    font-size: 2rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {opacity:.6}
+    50% {opacity:1}
+    100% {opacity:.6}
+}
+
+.main-content {
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.profile-card,
+.discord-box,
+.music-player {
+    max-width: 600px;
+    width: 100%;
+    background: rgba(20,20,23,.5);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    border: 1px solid rgba(255,255,255,.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: .6s ease;
+}
+
+.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* PROFILE */
+.profile-banner img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 25px 25px 0 0;
+}
+
+.profile-pic-container {
+    margin-top: -70px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid white;
+}
+
+.profile-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-name {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.social-icon i {
+    font-size: 34px;
+    color: white;
+}
+
+/* DISCORD BOX */
+.discord-box {
+    padding: 20px;
+    cursor: pointer;
+}
+
+.discord-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.discord-pic {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.discord-name {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.discord-status {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    opacity: .85;
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+    background: #3ba55c;
+}
+
+/* MUSIC */
+.music-player {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.song-cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.song-info {
+    flex: 1;
+}
+
+.progress-container {
+    width: 100%;
+    height: 5px;
+    background: rgba(255,255,255,.3);
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 6px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: white;
+    border-radius: 5px;
+}
+
+.time-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    opacity: .7;
+}
+
+.play-pause {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<video id="video-background" autoplay muted loop>
+    <source src="images/background.mp4">
+</video>
+
+<audio id="music-player" loop>
+    <source src="music/song.mp3">
+</audio>
+
+<div class="preload-screen">
+    <div class="preload-text">Click to reveal</div>
+</div>
+
+<div class="main-content">
+<div class="container">
+
+<!-- PROFILE -->
+<div class="profile-card">
+    <div class="profile-banner">
+        <img src="images/banner.png">
+    </div>
+    <div class="profile-pic-container">
+        <img src="images/profile.png" class="profile-pic">
+    </div>
+    <div class="profile-content">
+        <div class="profile-name">vf5o</div>
+
+        <!-- ONLY DISCORD ICON (CENTERED) -->
+        <div class="social-icons">
+            <a class="social-icon" href="https://discord.com/users/418391399965392906" target="_blank">
+                <i class="fab fa-discord"></i>
+            </a>
+        </div>
+
+        <div>Because Im Kira.</div>
+    </div>
+</div>
+
+<!-- DISCORD CARD -->
+<div class="discord-box" id="discord-profile">
+    <div class="discord-header">
+        <img src="images/profile.png" class="discord-pic">
+        <div>
+            <div class="discord-name">vf5o</div>
+            <div class="discord-status">
+                <div class="status-indicator"></div> Online
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MUSIC -->
+<div class="music-player">
+    <img src="images/album-cover.jpg" class="song-cover">
+    <div class="song-info">
+        <div class="song-title">
+100MPH Freestyle 2 (Music Video)</div>
+        <div class="song-artist">Clavish</div>
+        <div class="progress-container" id="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="time-info">
+            <span id="current-time">0:00</span>
+            <span id="duration">0:00</span>
+        </div>
+    </div>
+    <button class="play-pause" id="play-button">▶</button>
+</div>
+
+</div>
+</div>
+
+<script>
+const preload = document.querySelector('.preload-screen');
+const main = document.querySelector('.main-content');
+const audio = document.getElementById('music-player');
+const playBtn = document.getElementById('play-button');
+const progressBar = document.getElementById('progress-bar');
+const progressContainer = document.getElementById('progress-container');
+const currentTimeEl = document.getElementById('current-time');
+const durationEl = document.getElementById('duration');
+
+preload.onclick = () => {
+    preload.style.display = 'none';
+    main.style.opacity = '1';
+    document.querySelectorAll('.profile-card,.discord-box,.music-player')
+        .forEach(e => e.classList.add('animate-in'));
+    audio.volume = 0.1;
+    audio.play();
+    playBtn.textContent = '⏸';
+};
+
+playBtn.onclick = () => {
+    if (audio.paused) {
+        audio.play();
+        playBtn.textContent = '⏸';
+    } else {
+        audio.pause();
+        playBtn.textContent = '▶';
+    }
+};
+
+audio.addEventListener('timeupdate', () => {
+    const percent = (audio.currentTime / audio.duration) * 100;
+    progressBar.style.width = percent + '%';
+    currentTimeEl.textContent = format(audio.currentTime);
+    durationEl.textContent = format(audio.duration);
+});
+
+progressContainer.onclick = e => {
+    audio.currentTime = (e.offsetX / progressContainer.clientWidth) * audio.duration;
+};
+
+function format(t) {
+    if (!t) return '0:00';
+    const m = Math.floor(t / 60);
+    const s = Math.floor(t % 60);
+    return `${m}:${s < 10 ? '0' : ''}${s}`;
+}
+
+document.getElementById('discord-profile').onclick = () => {
+    window.open('https://discord.com/users/1513966920804733171', '_blank');
+};
+</script>
+
+</body>
+</html>
